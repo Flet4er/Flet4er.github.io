@@ -19,6 +19,7 @@
             <a href="#about" class="nav-link">Обо мне</a>
             <a href="#skills" class="nav-link">Навыки</a>
             <a href="#projects" class="nav-link">Проекты</a>
+            <a href="#additional" class="nav-link">Дополнительно</a>
             <a href="#contacts" class="nav-link">Контакты</a>
         </nav>
     </header>
@@ -28,23 +29,36 @@
 
         <section class="hero">
             <h1 class="hero-title">Б. Владимир</h1>
-            <p class="hero-subtitle">Разработчик UE</p>
-            <a href="#contacts" class="hero-button">Связаться со мной</a>
+            <p class="hero-subtitle">Разработчик игр на Unreal Engine</p>
+            <div class="ref-container">
+                <a href="#projects" class="hero-button">Мои проекты</a>
+                <a href="#contacts" class="hero-button">Связаться со мной</a>
+            </div>
+
         </section>
 
         <!-- "обо мне" -->
         <section id="about" class="section">
             <h2>Обо мне</h2>
-            <p>пару слов о себе</p>
+            <p>Junior UE Developer. Не конфликтный, ответственный и самостоятельный, имею опыт полного цикла разработки - от создания новых функций до поддержки существующих систем. Участвовал в разработке и поддержке проекта в команде, где работал с legacy-кодом: исправление ошибок, рефакторинг и оптимизация.</p>
         </section>
 
         <section id="skills" class="section">
             <h2>Мои навыки</h2>
             <div class="skills-container">
-                <div class="skill">UE-C++</div>
-                <div class="skill">UE-Blueprint</div>
-                <div class="skill">Git</div>
-                <!-- навыки ... -->
+                <div class="skill">UE C++</div>
+                <div class="skill">UE Blueprint</div>
+                <div class="skill">Networking</div>
+                <div class="skill">Gameplay Systems Design</div>
+                <div class="skill">Git</div>                
+            </div>
+            <div class="skills-lesser-container">
+                <div class="skill-lesser">Gameplay Ability System</div>
+                <div class="skill-lesser">UE Sprite 2D</div>
+                <div class="skill-lesser">UE HTTP</div>
+                <div class="skill-lesser">UE Physics Simulation</div>
+                <div class="skill-lesser">Системы управления и контроля</div>                
+                <div class="skill-lesser">Работа в команде</div>
             </div>
         </section>
 
@@ -55,7 +69,7 @@
 
                 <div class="project-card">
                     <h3 class="project-title">Название проекта 1</h3>
-                    <p class="project-desc">Коллективный проект Magery</p>
+                    <p class="project-desc">Коллективный проект Magery. Разработка кастомной системы управления спрайтовыми анимациями (аналог AnimBP) для UE4.27, когда штатный функционал Paper2D был ограничен</p>
                     <a href="https://github.com/Flet4er/Magery" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
 
@@ -79,17 +93,27 @@
             </div>
         </section>
 
+        <section id="additional" class="section">
+            <h2>Дополнительная информация</h2>            
+            <p>Знаком с: C#, Unity, Python, Lua (Писал моды для Factorio), HTML. Имею опыт full-stack разработки на Python (Flask, SQL), что дало глубокое понимание клиент-серверной архитектуры и проектирования систем с backend-логикой (проект - сайт журнал для учебых заведений).</p>
+            <p>В свободное время играю на гитаре, расслабляюсь в компьютерных играх (больше всего люблю ARPG и всевозможные стратегии).</p>
+        </section>
 
         <section id="contacts" class="section">
             <h2>Как со мной связаться</h2>
             <p>Вы можете написать мне:</p>
             <div class="contacts-container">
 
-                <a href="https://t.me/ClearRain" target="_blank" class="contact-link">Telegram</a>
-                <a href="mailto:geleonrore@gmail.com" class="contact-link">Email</a>
+                <a href="https://t.me/ClearRain" target="_blank" class="contact-link">Telegram: @ClearRain</a>
+                <a href="mailto:geleonrore@gmail.com" class="contact-link">Email: geleonrore@gmail.com</a>
             </div>
         </section>
     </main>
+    
+
+    <footer class="footer">
+        <p>Хостинг: GitHub Pages</p>
+    </footer>    
 
     <script src="script.js"></script>
 </body>
