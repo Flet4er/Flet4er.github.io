@@ -13,3 +13,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+function togglePanel(btn) {
+            const collapspanel = btn.nextElementSibling;
+
+            collapspanel.classList.toggle('open');
+        }
