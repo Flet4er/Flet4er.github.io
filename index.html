@@ -81,40 +81,42 @@
                             <li>Увеличил FPS через оптимизацию спавна, коллизий и рендера. Уменьшил максимальный размер установочного файла. Увеличил производительность в редакторе UE через рефакторинг кода и Blueprints. Впоследствии перенес проект на UE 5.4, исправил критические ошибки и дополнительно оптимизировал его для порта на Android</li>
                             <li>Обеспечил финальный билд: собрал и протестировал рабочую версию для ПК и Android</li>                 
                         </ul>
-
+                    <p class="project-desc">Статус:«закончен»</p>
 
                         <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
                             Вложения
                         </button>
-
                         <div class="collapspanel">
                             <div class="collapsed-content">
-                                <!-- ГАЛЕРЕЯ С ПРЕВЬЮ -->
-                                <div class="gallery-grid">
-                                    <!-- Видео с превью -->
-                                    <div class="gallery-item" onclick="openMedia('video', 'magery.mp4')">
+                                <div class="gallery-grid" id="gallery-project1">
+                                    <!-- Видео -->
+                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project1')">
                                         <div class="video-thumb">
-                                            <img src="video-preview.jpg" alt="Видео превью">
+                                            <img src="m.png" alt="Превью видео">
                                             <div class="play-icon">▶</div>
                                         </div>
-                                        <p>Видео проекта</p>
+                                        <div class="media-name">Видео обзор</div>
                                     </div>
                                     
-                                    <!-- Скриншот с превью -->
-                                    <div class="gallery-item" onclick="openMedia('image', 'magery.png')">
-                                        <img src="magery.png" alt="Скриншот" class="image-thumb">
-                                        <p>Скриншот 1</p>
+                                    <!-- Скриншоты -->
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project1')">
+                                        <img src="m.png" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Главный экран</div>
                                     </div>
                                     
-                                    <!-- Еще скриншоты -->
-                                    <div class="gallery-item" onclick="openMedia('image', 'screen2.jpg')">
-                                        <img src="screen2-thumb.jpg" alt="Скриншот" class="image-thumb">
-                                        <p>Скриншот 2</p>
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project1')">
+                                        <img src="m.png" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Настройки</div>
+                                    </div>
+                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project1')">
+                                        <img src="m.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Результат</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     <a href="https://github.com/Flet4er/Magery" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
                         
@@ -131,6 +133,42 @@
                         -расширяемость: классы тайлов, фигур реализованы таким образом, что бы добавить в игру новые фигуры с другим функционалом было максимально просто; пошаговый режим так же легко расширяем, возможность добавления новых правил, механик.
                     </p>
                     <p class="project-desc">Статус:«закончен»</p>
+
+                        <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
+                            Вложения
+                        </button>
+                        <div class="collapspanel">
+                            <div class="collapsed-content">
+                                <div class="gallery-grid" id="gallery-project1">
+                                    <!-- Видео -->
+                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project1')">
+                                        <div class="video-thumb">
+                                            <img src="m.png" alt="Превью видео">
+                                            <div class="play-icon">▶</div>
+                                        </div>
+                                        <div class="media-name">Видео обзор</div>
+                                    </div>
+                                    
+                                    <!-- Скриншоты -->
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project1')">
+                                        <img src="m.png" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Главный экран</div>
+                                    </div>
+                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project1')">
+                                        <img src="m.png" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Настройки</div>
+                                    </div>
+                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project1')">
+                                        <img src="m.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Результат</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     <a href="https://github.com/Flet4er/Isometric_TD" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
 
@@ -144,8 +182,44 @@
                                             -Гибкая система крафта: разделена на рецептурную (для экипировки) и комбинаторную (для зелий и еды). Вторая автоматически генерирует новые ID предметов, комбинируя свойства ингредиентов.
                                             -Система навыков и коллекций на основе Gameplay Ability System (GAS) и Gameplay Tags, что обеспечивает масштабируемость и простоту добавления нового контента.
                                             -Оптимизация критичных систем: работа с сохранениями и поиск по DataTable вынесены в C++ для повышения производительности, остальная логика реализована в Blueprint для скорости итераций.
-                                        </p>
+                    </p>
                     <p class="project-desc">Статус:«в активной разработке»</p>
+
+                        <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
+                            Вложения
+                        </button>
+                        <div class="collapspanel">
+                            <div class="collapsed-content">
+                                <div class="gallery-grid" id="gallery-project1">
+                                    <!-- Видео -->
+                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project1')">
+                                        <div class="video-thumb">
+                                            <img src="m.png" alt="Превью видео">
+                                            <div class="play-icon">▶</div>
+                                        </div>
+                                        <div class="media-name">Видео обзор</div>
+                                    </div>
+                                    
+                                    <!-- Скриншоты -->
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project1')">
+                                        <img src="m.png" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Главный экран</div>
+                                    </div>
+                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project1')">
+                                        <img src="m.png" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Настройки</div>
+                                    </div>
+                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project1')">
+                                        <img src="m.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Результат</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     <a href="..." target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
                 
