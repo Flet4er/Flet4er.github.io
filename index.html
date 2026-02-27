@@ -71,7 +71,7 @@
             <div class="projects-container">
 
                 <div class="project-card">
-                    <h3 class="project-title">Vampire Survivors-like: от прототипа до оптимизированного мобильного билда</h3>
+                    <h3 class="project-title">Vampire Survivors-like</h3>
                     <p class="project-desc">Командный проект с жестким дедлайном. Моя задача — создать стабильное ядро игры, реализовать все возможные геймплейные механики и уложиться в срок для демонстрации.</p>
                         <h3 class="project-key">Ключевой функционал:</h3>
                         <ul class="feature-list">    
@@ -86,12 +86,35 @@
                         <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
                             Вложения
                         </button>
+
                         <div class="collapspanel">
                             <div class="collapsed-content">
-                                <video controls><source src="magery.mp4"></video>
-                                <img src="magery.png">
+                                <!-- ГАЛЕРЕЯ С ПРЕВЬЮ -->
+                                <div class="gallery-grid">
+                                    <!-- Видео с превью -->
+                                    <div class="gallery-item" onclick="openMedia('video', 'magery.mp4')">
+                                        <div class="video-thumb">
+                                            <img src="video-preview.jpg" alt="Видео превью">
+                                            <div class="play-icon">▶</div>
+                                        </div>
+                                        <p>Видео проекта</p>
+                                    </div>
+                                    
+                                    <!-- Скриншот с превью -->
+                                    <div class="gallery-item" onclick="openMedia('image', 'magery.png')">
+                                        <img src="magery.png" alt="Скриншот" class="image-thumb">
+                                        <p>Скриншот 1</p>
+                                    </div>
+                                    
+                                    <!-- Еще скриншоты -->
+                                    <div class="gallery-item" onclick="openMedia('image', 'screen2.jpg')">
+                                        <img src="screen2-thumb.jpg" alt="Скриншот" class="image-thumb">
+                                        <p>Скриншот 2</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        
                     <a href="https://github.com/Flet4er/Magery" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
                         
