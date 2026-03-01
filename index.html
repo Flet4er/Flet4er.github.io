@@ -128,12 +128,12 @@
                         
                         <h3 class="project-key">Ключевой функционал:</h3>
                         <ul class="feature-list">
-                        <li>Пошаговая система со сменой хода с несколькими этапами</li>
-                        <li>Уникальная система изменения поля</li>
-                        <li>Интегрировано обучение нейросетевого AI, настроено поощерение\наказание за правильные\неправильные ходы</li>                        
-                        <li>Для простоты реализовано в Blueprint; создал кастомный UMG класс Image, который имеет OnClick() ивент</li>
-                        <li>Легкая интеграция для Multiplayer</li>
-                        <li>Расширяемость: классы тайлов, фигур реализованы таким образом, что бы последующие добавления в игру новых фигур было максимально просто; пошаговый режим так же легко расширяем, возможность добавления новых правил или механик</li>
+                        <li>Многоэтапная пошаговая система со сменой ходов и гибкой архитектурой для добавления новых правил</li>
+                        <li>Процедурная система изменения игрового поля</li>
+                        <li>Интеграция нейросетевого AI с системой поощрения/наказания на основе качества ходов</li>                        
+                        <li>Кастомный UMG Image класс с OnClick-событем для интерактивного взаимодействия</li>
+                        <li>Архитектура, оптимизированная для легкой интеграции в мультиплеер</li>
+                        <li>Расширяемая система классов (тайлы, фигуры) — новые юниты добавляются без изменения базового кода</li>
                         </ul>
                         
                     </p>
@@ -145,30 +145,40 @@
                         </button>
                         <div class="collapspanel">
                             <div class="collapsed-content">
-                                <div class="gallery-grid" id="gallery-project1">
+                                <div class="gallery-grid" id="gallery-project2">
                                     <!-- Видео -->
-                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project1')">
+                                    <div class="gallery-item" onclick="openMedia('video', 'resources/isometric/gameplay.mkv', 0, 'gallery-project2')">
                                         <div class="video-thumb">
-                                            <img src="m.png" alt="Превью видео">
+                                            <img src="resources/isometric/thumbvid.PNG" alt="Превью видео">
                                             <div class="play-icon">▶</div>
                                         </div>
                                         <div class="media-name">Видео обзор</div>
                                     </div>
                                     
                                     <!-- Скриншоты -->
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project1')">
-                                        <img src="m.png" alt="Скриншот 1" class="image-thumb">
-                                        <div class="media-name">Главный экран</div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/isometric/chessrules.png', 1, 'gallery-project2')">
+                                        <img src="resources/isometric/chessrules.png" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Правила</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/isometric/chess.png', 2, 'gallery-project2')">
+                                        <img src="resources/isometric/chess.png" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Общий вид</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/isometric/turn1.png', 3, 'gallery-project2')">
+                                        <img src="resources/isometric/turn1.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Ход игрока</div>
                                     </div>
-                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project1')">
-                                        <img src="m.png" alt="Скриншот 2" class="image-thumb">
-                                        <div class="media-name">Настройки</div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/isometric/turn2.png', 4, 'gallery-project2')">
+                                        <img src="resources/isometric/turn2.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Изменение тайла</div>
                                     </div>
-                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project1')">
-                                        <img src="m.png" alt="Скриншот 3" class="image-thumb">
-                                        <div class="media-name">Результат</div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/isometric/specifobs.png', 5, 'gallery-project2')">
+                                        <img src="resources/isometric/specifobs.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Опеределение наблюдения</div>
+                                    </div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/isometric/customimageevent.png', 6, 'gallery-project2')">
+                                        <img src="resources/isometric/customimageevent.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Кастомный UUserWidget</div>
                                     </div>
                                 </div>
                             </div>
@@ -185,13 +195,16 @@
                     <h3 class="project-title">MintblomForest</h3>
                     <p class="project-desc">
                         Экспериментальный прототип RPG с модульными системами на Unreal Engine (командный проект)<br>
-                        Разработка велась в коллаборации с техническим художником(https://github.com/Shiiine). Моя зона ответственности — полная реализация игровой логики, архитектура систем и их интеграция.                        
+                        Разработка велась в коллаборации с техническим художником(https://www.artstation.com/shiiine). Моя зона ответственности — полная реализация игровой логики, архитектура систем и их интеграция.                        
                         <h3 class="project-key">Ключевой функционал:</h3>
                         <ul class="feature-list">
                             <li>Модульная система инвентаря по аналогии с Skyrim: данные предметов (стаки, иконки) динамически подгружаются из таблиц DataTable по их уникальному ID</li>
-                            <li>Гибкая система крафта: разделена на рецептурную (для экипировки) и комбинаторную (для зелий и еды). Вторая автоматически генерирует новые ID предметов, комбинируя свойства ингредиентов</li>
-                            <li>Система навыков и коллекций на основе Gameplay Ability System (GAS) и Gameplay Tags, что обеспечивает масштабируемость и простоту добавления нового контента</li>
-                            <li>Оптимизация критичных систем: работа с сохранениями и поиск по DataTable вынесены в C++ для повышения производительности, остальная логика реализована в Blueprint для скорости итераций</li>
+                            <li>Гибкая система крафта: разделена на рецептурную (для экипировки) и комбинаторную (для отваров и еды). Вторая автоматически генерирует новые ID предметов, комбинируя свойства ингредиентов</li>
+                            <li>Динамическая система идентификации предметов: префикс "Brew_" для зелий определяет логику расшифровки и применения эффектов</li>
+                            <li>Проверка компонентов Nutrition (белки/жиры/углеводы/клетчатка) при создании блюд</li>
+                            <li>Гибкая система атрибутов через GameplayTags — добавление любых свойств предметам без изменения кода</li>
+                            <li>Система навыков и коллекций - кастомная, на основе Gameplay Ability System (GAS) и Gameplay Tags, что обеспечивает простоту и масштабируемость</li>
+                            <li>Оптимизация критичных систем: работа с сохранениями и поиск по DataTable вынесены в C++ для повышения производительности, остальная логика реализована в Blueprint для доработки проекта даже без С++ разработчика</li>
                         </ul>
                     </p>
                     <br>
@@ -202,31 +215,33 @@
                         </button>
                         <div class="collapspanel">
                             <div class="collapsed-content">
-                                <div class="gallery-grid" id="gallery-project1">
+                                <div class="gallery-grid" id="gallery-project3">
                                     <!-- Видео -->
-                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project1')">
+                                    <div class="gallery-item" onclick="openMedia('video', 'resources/mintbloom/mintbloomdemo.mkv', 0, 'gallery-project3')">
                                         <div class="video-thumb">
-                                            <img src="m.png" alt="Превью видео">
+                                            <img src="resources/mintbloom/thumb.png" alt="Превью видео">
                                             <div class="play-icon">▶</div>
                                         </div>
                                         <div class="media-name">Видео обзор</div>
                                     </div>
                                     
                                     <!-- Скриншоты -->
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project1')">
-                                        <img src="m.png" alt="Скриншот 1" class="image-thumb">
-                                        <div class="media-name">Главный экран</div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/buildingbook.png', 1, 'gallery-project3')">
+                                        <img src="resources/mintbloom/buildingbook.png" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Экран строительства</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/crafting.png', 2, 'gallery-project3')">
+                                        <img src="resources/mintbloom/crafting.png" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Экран крафта</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/gameplaytag.PNG', 3, 'gallery-project3')">
+                                        <img src="resources/mintbloom/gameplaytag.PNG" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">GameplayTags</div>
                                     </div>
-                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project1')">
-                                        <img src="m.png" alt="Скриншот 2" class="image-thumb">
-                                        <div class="media-name">Настройки</div>
-                                    </div>
-                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project1')">
-                                        <img src="m.png" alt="Скриншот 3" class="image-thumb">
-                                        <div class="media-name">Результат</div>
-                                    </div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/attribute.PNG', 4, 'gallery-project3')">
+                                        <img src="resources/mintbloom/attribute.PNG" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">DT с GameplayTag в свойствах</div>
+                                    </div>                                  
                                 </div>
                             </div>
                         </div>
@@ -258,9 +273,9 @@
                         </button>
                         <div class="collapspanel">
                             <div class="collapsed-content">
-                                <div class="gallery-grid" id="gallery-project1">
+                                <div class="gallery-grid" id="gallery-project4">
                                     <!-- Видео -->
-                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project1')">
+                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project4')">
                                         <div class="video-thumb">
                                             <img src="m.png" alt="Превью видео">
                                             <div class="play-icon">▶</div>
@@ -269,17 +284,17 @@
                                     </div>
                                     
                                     <!-- Скриншоты -->
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project1')">
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project4')">
                                         <img src="m.png" alt="Скриншот 1" class="image-thumb">
                                         <div class="media-name">Главный экран</div>
                                     </div>
                                     
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project1')">
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project4')">
                                         <img src="m.png" alt="Скриншот 2" class="image-thumb">
                                         <div class="media-name">Настройки</div>
                                     </div>
                                     
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project1')">
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project4')">
                                         <img src="m.png" alt="Скриншот 3" class="image-thumb">
                                         <div class="media-name">Результат</div>
                                     </div>
