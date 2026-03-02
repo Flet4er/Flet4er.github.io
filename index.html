@@ -52,16 +52,17 @@
                 <div class="skill">UE C++</div>
                 <div class="skill">UE Blueprint</div>
                 <div class="skill">Networking</div>
-                <div class="skill">Gameplay Systems Design</div>
-                <div class="skill">Git</div>                
+                <div class="skill">Gameplay Systems Design</div>               
             </div>
             <div class="skills-lesser-container">
+                <div class="skill-lesser">Git</div>
                 <div class="skill-lesser">Gameplay Ability System</div>
                 <div class="skill-lesser">Gameplay Tag</div>
                 <div class="skill-lesser">Sprite 2D</div>
                 <div class="skill-lesser">UE HTTP</div>
                 <div class="skill-lesser">UE Physics Simulation</div>   
-                <div class="skill-lesser">Learning Agent Plugin</div>         
+                <div class="skill-lesser">Learning Agent Plugin</div>    
+     
             </div>
         </section>
 
@@ -76,10 +77,10 @@
                         <h3 class="project-key">Ключевой функционал:</h3>
                         <ul class="feature-list">    
                             <li>Разработал с нуля систему анимации и передвижения для спрайтов (Locomotion System) в UE 5.0, где отсутствовала официальная поддержка 2D-анимаций по состояниям. Система поддерживает 8 (для врагов), 16 (для персонажа) направлений движения и смену состояниия (Idle, Attack, Move) для игрока и всех врагов</li>
-                            <li>Реализовал все способности персонажа, свойства предметом</li>
+                            <li>Реализовал все способности персонажа, свойства предметом, весовую логику выпадения опыта.</li>
                             <li>Выполнил роль баланс-дизайнера: подбирал кривые опыта, настраивал сложность, чтобы достичь целевого хардкорного ощущения в стиле Diablo 2</li>
                             <li>Увеличил FPS через оптимизацию спавна, коллизий и рендера. Уменьшил максимальный размер установочного файла. Увеличил производительность в редакторе UE через рефакторинг кода и Blueprints. Впоследствии перенес проект на UE 5.4, исправил критические ошибки и дополнительно оптимизировал его для порта на Android</li>
-                            <li>Обеспечил финальный билд: собрал и протестировал рабочую версию для ПК и Android</li>                 
+                            <li>Обеспечил финальный билд: собрал и протестировал рабочую версию для Android</li>                 
                         </ul>
                     <br>
                     <p class="project-desc">Статус:«закончен»</p>
@@ -91,32 +92,48 @@
                             <div class="collapsed-content">
                                 <div class="gallery-grid" id="gallery-project1">
                                     <!-- Видео -->
-                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project1')">
+                                    <div class="gallery-item" onclick="openMedia('video', 'resources/magery/Magery.mp4', 0, 'gallery-project1')">
                                         <div class="video-thumb">
-                                            <img src="m.png" alt="Превью видео">
+                                            <img src="resources/magery/game.png" alt="Превью видео">
                                             <div class="play-icon">▶</div>
                                         </div>
                                         <div class="media-name">Видео обзор</div>
                                     </div>
                                     
                                     <!-- Скриншоты -->
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project1')">
-                                        <img src="m.png" alt="Скриншот 1" class="image-thumb">
-                                        <div class="media-name">Главный экран</div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/magery/game.png', 1, 'gallery-project1')">
+                                        <img src="resources/magery/game.png" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Игра</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/magery/select.png', 2, 'gallery-project1')">
+                                        <img src="resources/magery/select.png" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Повышение уровня</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/magery/boss.png', 3, 'gallery-project1')">
+                                        <img src="resources/magery/boss.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Битва с боссом</div>
                                     </div>
-                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project1')">
-                                        <img src="m.png" alt="Скриншот 2" class="image-thumb">
-                                        <div class="media-name">Настройки</div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/magery/casino.png', 4, 'gallery-project1')">
+                                        <img src="resources/magery/casino.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Сундук улучшений</div>
                                     </div>
-                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project1')">
-                                        <img src="m.png" alt="Скриншот 3" class="image-thumb">
-                                        <div class="media-name">Результат</div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/magery/pause.png', 5, 'gallery-project1')">
+                                        <img src="resources/magery/pause.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Меню паузы</div>
+                                    </div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/magery/total.png', 6, 'gallery-project1')">
+                                        <img src="resources/magery/total.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Статистика</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <p class="project-desc">
+                        <br>
+                        Проект был выполнен группой девелоперов, которые пожелали остаться неизвестными.
+                        <!--Проект был выполнен группой девелоперов: ..., ..., ... .-->
+                        </p>
 
                     <a href="https://github.com/Flet4er/Magery" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>

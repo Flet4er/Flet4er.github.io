@@ -93,6 +93,7 @@ body {
     background-color: #1c2741; /*разделы бэкграунд*/
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    color: #ffffffc0;
 }
 
 .section h2 {
