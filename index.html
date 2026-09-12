@@ -137,6 +137,7 @@
 
                     <a href="https://github.com/Flet4er/Magery" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
+                <br>
 <!--ChessAI-->                        
                 <div class="project-card">
                     <h3 class="project-title">IsometricChess</h3>
@@ -151,8 +152,7 @@
                         <li>Кастомный UMG Image класс с OnClick-событем для интерактивного взаимодействия</li>
                         <li>Архитектура, оптимизированная для легкой интеграции в мультиплеер</li>
                         <li>Расширяемая система классов (тайлы, фигуры) — новые юниты добавляются без изменения базового кода</li>
-                        </ul>
-                        
+                        </ul>                        
                     </p>
                     <br>                    
                     <p class="project-desc">Статус:«закончен»</p>
@@ -207,6 +207,7 @@
                         </p>
                     <a href="https://github.com/Flet4er/Isometric_TD" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
+                <br>
 <!--Mintbloom-->
                 <div class="project-card">
                     <h3 class="project-title">MintblomForest</h3>
@@ -225,7 +226,7 @@
                         </ul>
                     </p>
                     <br>
-                    <p class="project-desc">Статус:«в активной разработке»</p>
+                    <p class="project-desc">Статус:«закончен»</p>
 
                         <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
                             Вложения
@@ -256,7 +257,7 @@
                                         <div class="media-name">GameplayTags</div>
                                     </div>
                                     <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/attribute.PNG', 4, 'gallery-project3')">
-                                        <img src="resources/mintbloom/attribute.PNG" alt="Скриншот 2" class="image-thumb">
+                                        <img src="resources/mintbloom/attribute.PNG" alt="Скриншот 4" class="image-thumb">
                                         <div class="media-name">DT с GameplayTag в свойствах</div>
                                     </div>                                  
                                 </div>
@@ -275,6 +276,68 @@
 
                     <a href="..." target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
+                <br>
+<!--NPC_AI-->
+                <div class="project-card">
+                    <h3 class="project-title">NPC_AI</h3>
+                    <p class="project-desc">
+                        Интеграция языковой модели с UE для симуляции отыгрыша NPC и выдаче квестов. Похожий функционал существует в игре Where winds meet.               
+                        <h3 class="project-key">Ключевой функционал:</h3>
+                        <ul class="feature-list">
+                            <li>Самописный C++ HTTP клиент для коммуникации с AI моделью (без внешних библиотек)</li>
+                            <li>Парсинг JSON ответов и преобразование в игровые объекты</li>
+                            <li>Модульная архитектура для легкой замены модели</li>
+                            <li>Промпт для модели, от которого зависит пулл квестов</li>
+                        </ul>
+                    </p>
+                    <br>
+                    <p class="project-desc">Статус:«завершен»</p>
+
+                        <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
+                            Вложения
+                        </button>
+                        <div class="collapspanel">
+                            <div class="collapsed-content">
+                                <div class="gallery-grid" id="gallery-project4">
+                                    <!-- Видео -->
+                                    <div class="gallery-item" onclick="openMedia('video', 'resources/npc_ai/npc_ai.mp4', 0, 'gallery-project4')">
+                                        <div class="video-thumb">
+                                            <img src="resources/npc_ai/preview.png" alt="Превью видео">
+                                            <div class="play-icon">▶</div>
+                                        </div>
+                                        <div class="media-name">Видео обзор</div>
+                                    </div>
+                                    
+                                    <!-- Скриншоты -->
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/npc_ai/whole.PNG', 1, 'gallery-project4')">
+                                        <img src="resources/npc_ai/whole.PNG" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Экран строительства</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/npc_ai/request.png', 2, 'gallery-project4')">
+                                        <img src="resources/npc_ai/request.png" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">HTTP POST</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/npc_ai/response.png', 3, 'gallery-project4')">
+                                        <img src="resources/npc_ai/response.png" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">HTTP response</div>
+                                    </div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/npc_ai/chart.png', 4, 'gallery-project4')">
+                                        <img src="resources/npc_ai/chart.png" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Схема архитектуры</div>
+                                    </div>                                  
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <p class="project-desc">
+                        <br>
+                        Заключение: Подключение языковой модели в динамическую систему или песочницу - открывает огромные возможности: взять те же квесты - если обьеденить динамическую систему квестов, языковую модель и соответствующий промпт для нее, модель может создавать новые задание доступные из арсенала системы. Каждое прохождение будет сильно отличаться от предыдущего.
+                        </p>
+                        
+
+                    <a href="..." target="_blank" class="project-link">Смотреть на GitHub</a>
+                </div>
+                <br>
 <!--днд-->                
                 <div class="project-card">
                     <h3 class="project-title">Клиент для игры в DnD</h3>
@@ -295,9 +358,9 @@
                         </button>
                         <div class="collapspanel">
                             <div class="collapsed-content">
-                                <div class="gallery-grid" id="gallery-project4">
+                                <div class="gallery-grid" id="gallery-project5">
                                     <!-- Видео -->
-                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project4')">
+                                    <div class="gallery-item" onclick="openMedia('video', 'Magery.mp4', 0, 'gallery-project5')">
                                         <div class="video-thumb">
                                             <img src="m.png" alt="Превью видео">
                                             <div class="play-icon">▶</div>
@@ -306,17 +369,17 @@
                                     </div>
                                     
                                     <!-- Скриншоты -->
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project4')">
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 1, 'gallery-project5')">
                                         <img src="m.png" alt="Скриншот 1" class="image-thumb">
                                         <div class="media-name">Главный экран</div>
                                     </div>
                                     
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project4')">
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 2, 'gallery-project5')">
                                         <img src="m.png" alt="Скриншот 2" class="image-thumb">
                                         <div class="media-name">Настройки</div>
                                     </div>
                                     
-                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project4')">
+                                    <div class="gallery-item" onclick="openMedia('image', 'Magery.png', 3, 'gallery-project5')">
                                         <img src="m.png" alt="Скриншот 3" class="image-thumb">
                                         <div class="media-name">Результат</div>
                                     </div>
@@ -331,6 +394,7 @@
                             <li>Рантайм загрузка\синхронизация\репликация 3D моделей</li>
                             <li>Реализовать "туман войны"</li>
                             <li>Добавить полную базу заклинаний, экипировки</li>
+                            <li>Реализовать AI мастера, который будет генерировать из имеющихся материалов(карты,фигурки,модели) - сюжет для партий</li>
                         </ul>
                     </p>
 
