@@ -70,7 +70,7 @@
         <section id="projects" class="section">
             <h2>Мои проекты</h2>
             <div class="projects-container">
-
+<!--<Majery T_T>-->
                 <div class="project-card">
                     <h3 class="project-title">Vampire Survivors-like</h3>
                     <p class="project-desc">Командный проект с жестким дедлайном. Моя задача — создать стабильное ядро игры, реализовать все возможные геймплейные механики и уложиться в срок для демонстрации.</p>
@@ -208,6 +208,61 @@
                     <a href="https://github.com/Flet4er/Isometric_TD" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
                 <br>
+<!--Parkour-->                        
+                <div class="project-card">
+                    <h3 class="project-title">Traversal</h3>
+                    <p class="project-desc">Базовая cистема паркура. Реализована в C++ через Gameplay Ability System (GAS). Без использования Blueprint.<br>
+                        
+                        <h3 class="project-key">Ключевой функционал:</h3>
+                        <ul class="feature-list">
+                        <li>Проект на 99% написан в С++. Blueprint использовался для балансировки переменных</li>
+                        <li>Клавиша "активного" перемещения (Assasins Creed reference) - правая кнопка мыши</li>
+                        <li>GAS с двумя Ability: бег по стене(вертикальный/горизонтальный), прыжки от стен(во время бега по стене и обычные)</li>
+                        <li>Для анимаций использовался бесплатный ассет. Для бега по стене использовалась анимация обычного бега но с изменнием угла для кости pelvis </li>                        
+                        <li>Управление: перемещение - WASD; cпринт - Shift; прыжок - Space; быстрая стойка - RMB; vault\mantle (перепрыгнуть\залезть) - F</li>
+                        </ul>                        
+                    </p>
+                    <br>                    
+                    <p class="project-desc">Статус:«закончен»</p>
+
+                        <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
+                            Вложения
+                        </button>
+                        <div class="collapspanel">
+                            <div class="collapsed-content">
+                                <div class="gallery-grid" id="gallery-project6">
+                                    <!-- Видео -->
+                                    <div class="gallery-item" onclick="openMedia('video', 'resources/traversal/traversal.mkv', 0, 'gallery-project6')">
+                                        <div class="video-thumb">
+                                            <img src="resources/traversal/thumb.PNG" alt="Превью видео">
+                                            <div class="play-icon">▶</div>
+                                        </div>
+                                        <div class="media-name">Видео обзор</div>
+                                    </div>
+                                    
+                                    <!-- Скриншоты -->
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/bp_assign.PNG', 1, 'gallery-project6')">
+                                        <img src="resources/traversal/bp_assign.PNG" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Назначение С++ Ability</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/parkour_code.PNG', 2, 'gallery-project6')">
+                                        <img src="resources/traversal/parkour_code.PNG" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Mantle\Vault</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/walljump_code.PNG', 3, 'gallery-project6')">
+                                        <img src="resources/traversal/walljump_code.PNG" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Wall jump</div>
+                                    </div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/param.PNG', 4, 'gallery-project6')">
+                                        <img src="resources/traversal/param.PNG" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Наследник С++ для баланса</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <a href="https://github.com/Flet4er/Isometric_TD" target="_blank" class="project-link">Смотреть на GitHub</a>
+                </div>
+                <br>                
 <!--Mintbloom-->
                 <div class="project-card">
                     <h3 class="project-title">MintblomForest</h3>
