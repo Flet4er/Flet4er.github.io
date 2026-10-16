@@ -461,8 +461,8 @@ font-weight: 500;
 /* Кнопка закрытия */
 .close-modal {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: -20px;
+    right: 0px;
     color: white;
     font-size: 45px;
     cursor: pointer;
@@ -544,13 +544,9 @@ font-weight: 500;
 /* Счетчик и кнопка закрытия */
 .modal-content-wrapper .image-counter {
     position: absolute;
-    bottom: -40px;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.modal-content-wrapper .close-modal {
-    position: absolute;
-    top: -60px;
-    right: 0;
-}
+

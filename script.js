@@ -16,14 +16,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 //открытие коллапс панели
 function togglePanel(btn) {
-            const collapspanel = btn.nextElementSibling;
-
-            collapspanel.classList.toggle('open');
+    const collapspanel = btn.nextElementSibling;
+    collapspanel.classList.toggle('open');
 }
 
 //счетчик всего\осталось 
 let currentGallery = [];
 let currentIndex = 0;
+let currentGalleryEl = null;
 
 
 function openMedia(type, src, index, galleryId) {
@@ -31,18 +31,21 @@ function openMedia(type, src, index, galleryId) {
     
     currentIndex = index;
     
-
     const gallery = document.getElementById(galleryId);
+    currentGalleryEl = gallery;
     const items = gallery.querySelectorAll('.gallery-item');
     
     currentGallery = Array.from(items).map(item => {
-
         const onclickAttr = item.getAttribute('onclick');
         const typeMatch = onclickAttr.match(/'([^']+)'/g);
         
+        const mediaNameElement = item.querySelector('.media-name');
+        const caption = mediaNameElement ? mediaNameElement.textContent : '';
+        
         return {
             type: typeMatch ? typeMatch[0].replace(/'/g, '') : 'image',
-            src: typeMatch ? typeMatch[1].replace(/'/g, '') : ''
+            src: typeMatch ? typeMatch[1].replace(/'/g, '') : '',
+            caption: caption  
         };
     });
     
@@ -71,8 +74,12 @@ function createModal(index) {
     contentWrapper.className = 'modal-content-wrapper';
     contentWrapper.style.cssText = `
         position: relative;
-        max-width: 90%;
-        max-height: 90%;
+        max-width: 100%;
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     `;
     
     //контент
@@ -86,6 +93,17 @@ function createModal(index) {
     
     updateModalContent(content, index);
     
+    // Подпись под контентом
+    const caption = document.createElement('div');
+    caption.className = 'modal-caption';
+    caption.style.cssText = `
+        text-align: center;
+        color: white;
+        padding: 5px 0;
+        font-size: 16px;
+    `;
+    caption.textContent = currentGallery[index].caption;
+    
     //кнопки навигации
     const prevBtn = document.createElement('button');
     prevBtn.className = 'nav-btn prev';
@@ -95,6 +113,7 @@ function createModal(index) {
         if (currentIndex > 0) {
             currentIndex--;
             updateModalContent(content, currentIndex);
+            caption.textContent = currentGallery[currentIndex].caption;  // Обновляем подпись
             updateCounter(counter, currentIndex);
             updateNavButtons(prevBtn, nextBtn);
         }
@@ -108,6 +127,7 @@ function createModal(index) {
         if (currentIndex < currentGallery.length - 1) {
             currentIndex++;
             updateModalContent(content, currentIndex);
+            caption.textContent = currentGallery[currentIndex].caption;  // Обновляем подпись
             updateCounter(counter, currentIndex);
             updateNavButtons(prevBtn, nextBtn);
         }
@@ -141,20 +161,17 @@ function createModal(index) {
     };
     
 
-    
-    //modal (фон) -> contentWrapper (центр) -> остальное
+    contentWrapper.appendChild(caption);
     contentWrapper.appendChild(content);
     contentWrapper.appendChild(prevBtn);
     contentWrapper.appendChild(nextBtn);
     contentWrapper.appendChild(counter);
     contentWrapper.appendChild(closeBtn);
-
-    
     modal.appendChild(contentWrapper);
     
     updateNavButtons(prevBtn, nextBtn);
     
-    //ESC
+    //ESC и стрелки
     document.addEventListener('keydown', function(e) {
         if (!document.body.contains(modal)) return;
         
@@ -165,12 +182,14 @@ function createModal(index) {
             e.preventDefault();
             currentIndex--;
             updateModalContent(content, currentIndex);
+            caption.textContent = currentGallery[currentIndex].caption; 
             updateCounter(counter, currentIndex);
             updateNavButtons(prevBtn, nextBtn);
         } else if (e.key === 'ArrowRight' && currentIndex < currentGallery.length - 1) {
             e.preventDefault();
             currentIndex++;
             updateModalContent(content, currentIndex);
+            caption.textContent = currentGallery[currentIndex].caption;
             updateCounter(counter, currentIndex);
             updateNavButtons(prevBtn, nextBtn);
         }
@@ -180,45 +199,42 @@ function createModal(index) {
 }
 
 //функция обновления контента в модальном окне
-function updateModalContent(content, index) {
+function updateModalContent(content, index, captionEl) {
     content.innerHTML = '';
-    
+
     const item = currentGallery[index];
-    
+    if (!item) return;
+
     if (item.type === 'image') {
         const img = document.createElement('img');
         img.src = item.src;
         img.alt = `Изображение ${index + 1}`;
+        img.style.maxWidth = '100%';
+        img.style.maxHeight = '80vh';
+        img.style.display = 'block';
         content.appendChild(img);
     } else if (item.type === 'video') {
         const video = document.createElement('video');
         video.controls = true;
         video.autoplay = true;
-        
+        video.style.maxWidth = '100%';
+        video.style.maxHeight = '80vh';
+
         const source = document.createElement('source');
         source.src = item.src;
         source.type = 'video/mp4';
-        
+
         video.appendChild(source);
         content.appendChild(video);
     }
-    
-}
 
-//лево право клавиши
-document.addEventListener('keydown', function(e) {
-    const modal = document.querySelector('.media-modal');
-    if (!modal) return;
-    
-    const prevBtn = document.querySelector('.nav-btn.prev');
-    const nextBtn = document.querySelector('.nav-btn.next');
-    
-    if (e.key === 'ArrowLeft' && prevBtn && !prevBtn.disabled) {
-        prevBtn.click();
-    } else if (e.key === 'ArrowRight' && nextBtn && !nextBtn.disabled) {
-        nextBtn.click();
+    if (captionEl && currentGalleryEl) {
+        const mediaNames = currentGalleryEl.querySelectorAll('.media-name');
+        const captionText = mediaNames[index]?.textContent.trim() || '';
+        captionEl.textContent = captionText;
+        captionEl.style.display = captionText ? 'block' : 'none';
     }
-});
+}
 
 //блок скролла
 function lockScroll() {
