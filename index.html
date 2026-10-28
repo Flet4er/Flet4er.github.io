@@ -32,7 +32,7 @@
 
         <section class="hero">
             <h1 class="hero-title">Б. Владимир</h1>
-            <p class="hero-subtitle">Разработчик игр на Unreal Engine</p>
+            <p class="hero-subtitle">Unreal Engine C++ Developer</p>
             <div class="ref-container">
                 <a href="#projects" class="hero-button">Мои проекты</a>
                 <a href="#contacts" class="hero-button">Связаться со мной</a>
@@ -43,27 +43,44 @@
 <!-- обо мне -->
         <section id="about" class="section">
             <h2>Обо мне</h2>
-            <p>UE Developer. Не конфликтный, ответственный и самостоятельный, имею опыт полного цикла разработки - от создания новой архитектуры проекта до поддержки существующих систем. Участвовал в разработке и поддержке проекта в команде, где работал с legacy-кодом: исправление ошибок, рефакторинг и оптимизация.</p>
+            <p>Разрабатываю игровые системы на Unreal Engine с использованием C++ и Blueprint. Опыт включает проектирование архитектуры геймплейных систем, реализацию механик через Gameplay Ability System, работу с сетевой репликацией, динамической загрузкой ресурсов и интеграцией HTTP API.
+                <br>
+                <br>
+                Работал как над самостоятельными проектами, так и над командной разработкой. Занимался реализацией функциональности с нуля, поддержкой существующего кода, рефакторингом и оптимизацией.
+                <br>
+                <br>
+                В портфолио представлены проекты с исходным кодом и демонстрациями реализованных систем.</p>
         </section>
 
         <section id="skills" class="section">
-            <h2>Мои навыки</h2>
-            <div class="skills-container">
-                <div class="skill">UE C++</div>
-                <div class="skill">UE Blueprint</div>
-                <div class="skill">Networking/Replication</div>
-                <div class="skill">Gameplay Systems Design</div>               
-            </div>
-            <div class="skills-lesser-container">
-                <div class="skill-lesser">Git</div>
-                <div class="skill-lesser">Gameplay Ability System</div>
-                <div class="skill-lesser">Enhanced Input System</div>
-                <div class="skill-lesser">Gameplay Tag</div>
-                <div class="skill-lesser">Sprite 2D</div>
-                <div class="skill-lesser">UE HTTP</div>
-                <div class="skill-lesser">UE Physics Simulation</div>   
-                <div class="skill-lesser">Learning Agent Plugin</div>    
-     
+            <h2>Мои навыки</h2>               
+            <div class="skill-container-holder">
+                <div class="skills-container">
+                    <h4>Основная разработка</h4>
+                    <div class="skill-lesser">UE C++</div>
+                    <div class="skill-lesser">UE Blueprint</div>                                    
+                </div>
+                <div class="skills-container">
+                    <h4>Архитектура геймплея</h4>
+                    <div class="skill-lesser">Gameplay Ability System</div>
+                    <div class="skill-lesser">Gameplay Tag</div>
+                    <div class="skill-lesser">Gameplay Systems Design</div>
+                </div>
+                <div class="skills-container">
+                    <h4>Сетевое взаимодействие</h4>
+                    <div class="skill-lesser">Networking/Replication</div>
+                    <div class="skill-lesser">UE HTTP</div>
+                </div>
+                <div class="skills-container">
+                    <h4>Доп. технологии</h4>
+                    <div class="skill-lesser">Enhanced Input System</div>
+                    <div class="skill-lesser">Sprite 2D</div>
+                    <div class="skill-lesser">UE Physics Simulation</div> 
+                </div>
+                <div class="skills-container">
+                    <h4>Инструменты</h4>
+                    <div class="skill-lesser">Git</div>
+                </div>
             </div>
         </section>
 
@@ -71,17 +88,92 @@
         <section id="projects" class="section">
             <h2>Мои проекты</h2>
             <div class="projects-container">
+<!--Parkour-->                        
+                <div class="project-card">
+                    <h3 class="project-title">Traversal</h3>
+                    <p class="project-desc">Базовая cистема паркура. Реализована в C++ через Gameplay Ability System (GAS). Без использования Blueprint.<br>
+                        
+                        <h3 class="project-key">Ключевой функционал:</h3>
+                        <ul class="feature-list">
+                        <li>Проект на 99% написан в С++. Blueprint использовался для балансировки переменных.</li>
+                        <li>GAS с тремя Ability: WallJump(прыжки от стены во время бега по стене и обычные),WallRun(вертикальный\горизонтальный бег по стене),Parkour(преодоление мелких и крабканье на крупные препядствия).</li>
+                        <li>Политика активации - InstancedPerActor(один активный Ability На владельца) - не дает "спамить" Ability во время выполнения, т.к. добавляет проверку по тегу(система cool down)</li>
+                        <li>В персонаже происходят поверхностные проверки активации и отмены. Когда Ability активируется -> запускается AbilityTask, которая отслеживает дальность перемещения\наличия стен. AbilityTask завершается а через делегаты завершается абилити Ability.</li>
+                        <li>Самостоятельно решены задачи опредления препядствий. Остальное решено при помощи механизмов UE.</li>
+                        <li>Клавиша "активного" перемещения (Assasins Creed reference) - правая кнопка мыши.</li>
+                        <li>Для анимаций паркура использовался бесплатный ассет. Для бега по стене использовалась анимация обычного бега но с изменнием угла для кости pelvis.</li> 
+                        </ul>                        
+                    </p>
+                    <br>                    
+                    <p class="project-desc">Управление: перемещение - WASD; cпринт - Shift; прыжок - Space; быстрая стойка - RMB; перепрыгнуть\залезть - F.
+                        <br>
+                        <br>                        
+                        Статус:«закончен»
+                    </p>
+
+                        <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
+                            Вложения
+                        </button>
+                        <div class="collapspanel">
+                            <div class="collapsed-content">
+                                <div class="gallery-grid" id="gallery-project6">
+                                    <!-- Видео -->
+                                    <div class="gallery-item" onclick="openMedia('video', 'resources/traversal/traversal.mkv', 0, 'gallery-project6')">
+                                        <div class="video-thumb">
+                                            <img src="resources/traversal/thumb.PNG" alt="Превью видео">
+                                            <div class="play-icon">▶</div>
+                                        </div>
+                                        <div class="media-name">Видео обзор</div>
+                                    </div>
+                                    
+                                    <!-- Скриншоты -->
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/bp_assign.PNG', 1, 'gallery-project6')">
+                                        <img src="resources/traversal/bp_assign.PNG" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Назначение С++ Ability</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/parkour_code.PNG', 2, 'gallery-project6')">
+                                        <img src="resources/traversal/parkour_code.PNG" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Mantle\Vault</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/walljump_code.PNG', 3, 'gallery-project6')">
+                                        <img src="resources/traversal/walljump_code.PNG" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Wall jump</div>
+                                    </div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/param.PNG', 4, 'gallery-project6')">
+                                        <img src="resources/traversal/param.PNG" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Наследник С++ для баланса</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <a href="https://github.com/Flet4er/Traversal" target="_blank" class="project-link">Смотреть на GitHub</a>
+                </div>
+                <br>    
 <!--<Majery T_T>-->
                 <div class="project-card">
                     <h3 class="project-title">Vampire Survivors-like</h3>
-                    <p class="project-desc">Командный проект с жестким дедлайном. Моя задача — создать стабильное ядро игры, реализовать все возможные геймплейные механики и уложиться в срок для демонстрации.</p>
+                    <p class="project-desc">Командный проект в жанре Vampire Survivors-like для Android. Отвечал за основную часть игровой логики, связанной с боевой системой, способностями персонажа, характеристиками, предметами и поведением врагов, а также за оптимизацию производительности игры и рабочего процесса в редакторе Unreal Engine.</p>
                         <h3 class="project-key">Ключевой функционал:</h3>
                         <ul class="feature-list">    
-                            <li>Разработал с нуля систему анимации и передвижения для спрайтов (Locomotion System) в UE 5.0, где отсутствовала официальная поддержка 2D-анимаций по состояниям. Система поддерживает 8 (для врагов), 16 (для персонажа) направлений движения и смену состояниия (Idle, Attack, Move) для игрока и всех врагов</li>
-                            <li>Реализовал все способности персонажа, свойства предметом, весовую логику выпадения опыта.</li>
-                            <li>Выполнил роль баланс-дизайнера: подбирал кривые опыта, настраивал сложность, чтобы достичь целевого хардкорного ощущения в стиле Diablo 2</li>
-                            <li>Увеличил FPS через оптимизацию спавна, коллизий и рендера. Уменьшил максимальный размер установочного файла. Увеличил производительность в редакторе UE через рефакторинг кода и Blueprints. Впоследствии перенес проект на UE 5.4, исправил критические ошибки и дополнительно оптимизировал его для порта на Android</li>
-                            <li>Обеспечил финальный билд: собрал и протестировал рабочую версию для Android</li>                 
+                            <h4>Моя зона ответственности:</h4>
+                            <li>Реализовал все обычные и ультимативные способности персонажа и предметов.</li>
+                            <li>Разработал собственную систему locomotion и анимации спрайтов, существовавшую до появления Paper2D.</li>
+                            <li>Разработал весовую логику выпадения опыта(ARPG-like)</li>
+                            <li>Разработал систему нанесения урона и обработки боевых взаимодействий.</li>
+                            <li>Реализовал статистику боя и подсчёт нанесённого урона.</li>                            
+                            <li>Разработал систему теней которая синхронизируется с locomotion</li>
+                            <li>Увеличил FPS(с45 до 60+) через оптимизацию спавна, коллизий и рендера. Уменьшил максимальный размер установочного файла. Увеличил производительность в редакторе UE через рефакторинг кода и Blueprints.</li>
+                            <br>
+                            <h4>Проблемы и решения:</h4>
+                            <li>Проблема: при использовании магнита большое количество выпавшего опыта одновременно начинало перемещаться к персонажу. Это вызывало резкую просадку FPS.
+                                <br>Решение: изменил логику притягивания опыта: распределил объекты по оси Z и добавил случайную задержку от 0 до 0,1 секунды перед началом притягивания каждого объекта. Это позволило практически полностью устранить просадку FPS даже при большом количестве опыта.</li>
+                            <li>Проблема: накопление декалей и объектов опыта приводило к увеличению Overdraw и постепенному снижению FPS.
+                                <br>Решение: перенёс отображение опыта и декалей на Instanced Static Mesh Component, сократив накладные расходы на отображение множества объектов. Дополнительно распределил объекты по оси Z и реализовал удаление избыточно накопившихся декалей, поскольку стандартное управление временем жизни декалей не подходило для этой задачи.
+                            </li>
+                            <br>
+                            <h4>Границы ответственности:</h4>
+                            <li>Не занимался реализацией спавна врагов и таблиц спавна, пользовательского интерфейса, базовой инфраструктуры умений и характеристик, а также системы повышения уровня. При этом самостоятельно реализовал значительную часть игровой логики, использующей эти системы.</li>
+                            <li>Система способностей была построена на собственных механизмах, частично вдохновлённых подходами GAS, но не являлась реализацией Gameplay Ability System.</li>
                         </ul>
                     <br>
                     <p class="project-desc">Статус:«закончен»</p>
@@ -139,21 +231,110 @@
                     <a href="https://github.com/Flet4er/Magery" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
                 <br>
+<!--Mintbloom-->
+                <div class="project-card">
+                    <h3 class="project-title">MintblomForest</h3>
+                    <p class="project-desc">
+                        Экспериментальный прототип RPG с модульными системами на Unreal Engine (командный проект)<br>
+                        Разработка велась в коллаборации с техническим художником(https://www.artstation.com/shiiine). Моя зона ответственности — полная реализация игровой логики, архитектура систем и их интеграция.                        
+                        <h3 class="project-key">Ключевой функционал:</h3>
+                        <ul class="feature-list">
+                            <li>Разработал переиспользуемую систему инвентаря(по аналогии с Skyrim) как подключаемый компонент. Взаимодействие с предметами организовано через интерфейс, позволяющий разным игровым объектам использовать общую логику работы с инвентарём.</li>
+                            <h4>Система поддерживает проверку наличия необходимых предметов, проверку свободного места и добавление/забирание предметов в инвентарь. Она используется персонажем, сундуками, верстаком и алхимическим столом без необходимости создавать отдельную реализацию инвентаря для каждого типа объекта.</h4>
+                            <li>Гибкая система крафта: разделена на рецептурную (для экипировки) и комбинаторную (для зелий и еды). Вторая автоматически генерирует новые ID предметов, комбинируя свойства ингредиентов.</li>
+                            <li>Динамическая система идентификации предметов: префикс "Potion_" для зелий и "Food_" для еды - определяет логику расшифровки и применения эффектов.</li>
+                            <li>Проверка компонентов Nutrition (белки/жиры/углеводы/клетчатка) при создании блюд.</li>
+                            <li>Гибкая система атрибутов через GameplayTags — добавление любых свойств предметам без изменения кода.</li>
+                            <li>Система навыков и коллекций - кастомная, на основе Gameplay Ability System (GAS) и Gameplay Tags, что обеспечивает простоту и масштабируемость.</li>
+                            <li>Работа с сохранениями и поиск по DataTable вынесены в C++ для повышения производительности, остальная логика реализована в Blueprint для доработки проекта даже без С++ разработчика.</li>
+                        </ul>
+                    </p>
+                    <br>
+                    <p class="project-desc">Статус:«закончен»</p>
+
+                        <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
+                            Вложения
+                        </button>
+                        <div class="collapspanel">
+                            <div class="collapsed-content">
+                                <div class="gallery-grid" id="gallery-project3">
+                                    <!-- Видео -->
+                                    <div class="gallery-item" onclick="openMedia('video', 'resources/mintbloom/mintbloomdemo.mkv', 0, 'gallery-project3')">
+                                        <div class="video-thumb">
+                                            <img src="resources/mintbloom/thumb.png" alt="Превью видео">
+                                            <div class="play-icon">▶</div>
+                                        </div>
+                                        <div class="media-name">Видео обзор</div>
+                                    </div>
+                                    
+                                    <!-- Скриншоты -->
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/buildingbook.png', 1, 'gallery-project3')">
+                                        <img src="resources/mintbloom/buildingbook.png" alt="Скриншот 1" class="image-thumb">
+                                        <div class="media-name">Экран строительства</div>
+                                    </div>           
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/component.PNG', 2, 'gallery-project3')">
+                                        <img src="resources/mintbloom/component.PNG" alt="Скриншот 2" class="image-thumb">
+                                        <div class="media-name">Реализация InventoryComponent</div>
+                                    </div>       
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/CraftingSystem.PNG', 3, 'gallery-project3')">
+                                        <img src="resources/mintbloom/CraftingSystem.PNG" alt="Скриншот 3" class="image-thumb">
+                                        <div class="media-name">Гибкая система крафта с рецептом и без</div>
+                                    </div>       
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/example.PNG', 4, 'gallery-project3')">
+                                        <img src="resources/mintbloom/example.PNG" alt="Скриншот 4" class="image-thumb">
+                                        <div class="media-name">Пример результатов крафта</div>
+                                    </div>                                
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/crafting.png', 5, 'gallery-project3')">
+                                        <img src="resources/mintbloom/crafting.png" alt="Скриншот 5" class="image-thumb">
+                                        <div class="media-name">Экран крафта</div>
+                                    </div>                                    
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/gameplaytag.PNG', 6, 'gallery-project3')">
+                                        <img src="resources/mintbloom/gameplaytag.PNG" alt="Скриншот 6" class="image-thumb">
+                                        <div class="media-name">GameplayTags</div>
+                                    </div>
+                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/attribute.PNG', 7, 'gallery-project3')">
+                                        <img src="resources/mintbloom/attribute.PNG" alt="Скриншот 7" class="image-thumb">
+                                        <div class="media-name">DT с GameplayTag в свойствах</div>
+                                    </div>                                  
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <p class="project-desc">
+                        <br>
+                        Небольшой, но технически насыщенный проект, демонстрирующий умение проектировать и реализовывать, как заимствованные, так и создавать новые сложные игровые системы с гибкой архитектурой.
+                        <div>В планах:</div>
+                        <ul class="feature-list">                            
+                            <li>Подключить достижения в Steam после публикации</li>
+                        </ul>
+                        </p>
+                        
+
+                    <a href="..." target="_blank" class="project-link">Смотреть на GitHub</a>
+                </div>
+                <br>
 <!--ChessAI-->                        
                 <div class="project-card">
                     <h3 class="project-title">IsometricChess</h3>
-                    <p class="project-desc">Изометрические "шахматы" c большими изменениями в правилах.<br>
-                        Кратко правила: ход игрока состоит из 2 частей: первый - перемещение фигуры, второй - игрок меняет любой тайл в радиусе 2 клетов вокруг своих фигур. Вот некторые тайлы и их эфекты: скала - блокирует перемещение, вода - отнимает -1 к радиусу перемещения, трава - имунитет к изменению тайла. Так же на поле находятся 3 монолита. Для победы необходимо удерживать монолиты, которые приносят очки влияния. <br>
-                        
+                    <p class="project-desc">Изометрические "шахматы" c большими изменениями в правилах. Исследовательский проект с Hotseat системой управления или vs UE Agent Learning AI.
                         <h3 class="project-key">Ключевой функционал:</h3>
                         <ul class="feature-list">
-                        <li>Многоэтапная пошаговая система со сменой ходов и гибкой архитектурой для добавления новых правил</li>
-                        <li>Процедурная система изменения игрового поля</li>
-                        <li>Интеграция нейросетевого AI с системой поощрения/наказания на основе качества ходов</li>                        
-                        <li>Кастомный UMG Image класс с OnClick-событем для интерактивного взаимодействия</li>
-                        <li>Архитектура, оптимизированная для легкой интеграции в мультиплеер</li>
-                        <li>Расширяемая система классов (тайлы, фигуры) — новые юниты добавляются без изменения базового кода</li>
-                        </ul>                        
+                        <li>Многоэтапная пошаговая система со сменой ходов и гибкой архитектурой для добавления новых правил.</li>
+                        <li>Процедурная система изменения игрового поля.</li>
+                        <li>Интеграция нейросетевого AI с системой поощрения/наказания на основе качества ходов.</li>                        
+                        <li>Кастомный UMG Image класс с OnClick-событем для интерактивного взаимодействия.</li>
+                        <li>Архитектура, оптимизированная для легкой интеграции в мультиплеер.</li>
+                        <li>Расширяемая система классов (тайлы, фигуры) — новые юниты добавляются без изменения базового кода.</li>
+                        <li>C каждой победой AI будет все лучше и лучше играть. Но не так быстро как ожидалось.</li>
+                        <br>
+                        <h4>Система Agent Learning:</h4>
+                        <li>Agent получал данные в начале своего хода: Две Tmap фигур(белы и черные) и их расположения, текущее состояние победных очков, состояние 3 монолитов(нейтральный, союзный,вражеский) и зоны вокруг монолита.</li>
+                        <li>Agent в свой ход может сходить любой своей фигурой, на любую клетку если ход валидный - агента поощряем и завершаем ход, если не валидный - отменяем ход и наказываем, даем сходить еще n раз (В начале валидность ходов была очень низкой, через час обучения - агент практически всегда делал валидные ходы).</li>
+                        <li>Система наказаний и поощрений: за потерю фигуры - штраф равный убитой фигуре, шраф варьируется от силы фигуры. За захваченный монолит - поощряем, за потеряный или занятый противником - наказываем. За победу - очень сильно поощряем, за поражение - наказывем. </li>
+                        <br>
+                        Правила игры: ход игрока состоит из двух частей: 1 - перемещение фигуры заданным паттерном, 2 - игрок меняет любой тайл в радиусе 2 клетов вокруг своих фигур. Вот некторые тайлы и их эфекты: скала - блокирует перемещение, вода - отнимает -1 к радиусу перемещения, трава - имунитет к изменению тайла. Так же на поле находятся 3 монолита. Для победы необходимо удерживать монолиты, которые приносят очки влияния. 
+                    </ul>              
+                                  
                     </p>
                     <br>                    
                     <p class="project-desc">Статус:«закончен»</p>
@@ -203,134 +384,9 @@
                         </div>
                         <p class="project-desc">
                         <br>
-                        Заключение по проекту: UE Learning Agent Plugin хотя и имеет функционал обучения "прям в игре" - его эффективность сомнительна. Для эффективности необходимо использовать данные полученные, например, от игры двух людей, и на этих данных обучать агента. Обучение Agenta с нуля сильно трудоемкий и время затратный процесс, требующий соответсвующего оборудования. Еще более эффективно будет использовать модель с открытым API и "дообучить".<br>
-                        Проект был в основном сделан, что бы протестировать плагин Learning Agent.
+                        Заключение по проекту: Проект использовался для изучения Unreal Engine Learning Agents и проверки применимости обучения с подкреплением к пошаговой стратегии. Эксперимент позволил изучить интеграцию агента с игровой логикой и выявить ограничения выбранного подхода.
                         </p>
                     <a href="https://github.com/Flet4er/Isometric_TD" target="_blank" class="project-link">Смотреть на GitHub</a>
-                </div>
-                <br>
-<!--Parkour-->                        
-                <div class="project-card">
-                    <h3 class="project-title">Traversal</h3>
-                    <p class="project-desc">Базовая cистема паркура. Реализована в C++ через Gameplay Ability System (GAS). Без использования Blueprint.<br>
-                        
-                        <h3 class="project-key">Ключевой функционал:</h3>
-                        <ul class="feature-list">
-                        <li>Проект на 99% написан в С++. Blueprint использовался для балансировки переменных</li>
-                        <li>Клавиша "активного" перемещения (Assasins Creed reference) - правая кнопка мыши</li>
-                        <li>GAS с двумя Ability: бег по стене(вертикальный/горизонтальный), прыжки от стен(во время бега по стене и обычные)</li>
-                        <li>Для анимаций использовался бесплатный ассет. Для бега по стене использовалась анимация обычного бега но с изменнием угла для кости pelvis </li>                        
-                        <li>Управление: перемещение - WASD; cпринт - Shift; прыжок - Space; быстрая стойка - RMB; vault\mantle (перепрыгнуть\залезть) - F</li>
-                        </ul>                        
-                    </p>
-                    <br>                    
-                    <p class="project-desc">Статус:«закончен»</p>
-
-                        <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
-                            Вложения
-                        </button>
-                        <div class="collapspanel">
-                            <div class="collapsed-content">
-                                <div class="gallery-grid" id="gallery-project6">
-                                    <!-- Видео -->
-                                    <div class="gallery-item" onclick="openMedia('video', 'resources/traversal/traversal.mkv', 0, 'gallery-project6')">
-                                        <div class="video-thumb">
-                                            <img src="resources/traversal/thumb.PNG" alt="Превью видео">
-                                            <div class="play-icon">▶</div>
-                                        </div>
-                                        <div class="media-name">Видео обзор</div>
-                                    </div>
-                                    
-                                    <!-- Скриншоты -->
-                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/bp_assign.PNG', 1, 'gallery-project6')">
-                                        <img src="resources/traversal/bp_assign.PNG" alt="Скриншот 1" class="image-thumb">
-                                        <div class="media-name">Назначение С++ Ability</div>
-                                    </div>                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/parkour_code.PNG', 2, 'gallery-project6')">
-                                        <img src="resources/traversal/parkour_code.PNG" alt="Скриншот 2" class="image-thumb">
-                                        <div class="media-name">Mantle\Vault</div>
-                                    </div>                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/walljump_code.PNG', 3, 'gallery-project6')">
-                                        <img src="resources/traversal/walljump_code.PNG" alt="Скриншот 3" class="image-thumb">
-                                        <div class="media-name">Wall jump</div>
-                                    </div>
-                                    <div class="gallery-item" onclick="openMedia('image', 'resources/traversal/param.PNG', 4, 'gallery-project6')">
-                                        <img src="resources/traversal/param.PNG" alt="Скриншот 3" class="image-thumb">
-                                        <div class="media-name">Наследник С++ для баланса</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <a href="https://github.com/Flet4er/Traversal" target="_blank" class="project-link">Смотреть на GitHub</a>
-                </div>
-                <br>                
-<!--Mintbloom-->
-                <div class="project-card">
-                    <h3 class="project-title">MintblomForest</h3>
-                    <p class="project-desc">
-                        Экспериментальный прототип RPG с модульными системами на Unreal Engine (командный проект)<br>
-                        Разработка велась в коллаборации с техническим художником(https://www.artstation.com/shiiine). Моя зона ответственности — полная реализация игровой логики, архитектура систем и их интеграция.                        
-                        <h3 class="project-key">Ключевой функционал:</h3>
-                        <ul class="feature-list">
-                            <li>Модульная система инвентаря по аналогии с Skyrim: данные предметов (стаки, иконки) динамически подгружаются из таблиц DataTable по их уникальному ID</li>
-                            <li>Гибкая система крафта: разделена на рецептурную (для экипировки) и комбинаторную (для отваров и еды). Вторая автоматически генерирует новые ID предметов, комбинируя свойства ингредиентов</li>
-                            <li>Динамическая система идентификации предметов: префикс "Brew_" для зелий определяет логику расшифровки и применения эффектов</li>
-                            <li>Проверка компонентов Nutrition (белки/жиры/углеводы/клетчатка) при создании блюд</li>
-                            <li>Гибкая система атрибутов через GameplayTags — добавление любых свойств предметам без изменения кода</li>
-                            <li>Система навыков и коллекций - кастомная, на основе Gameplay Ability System (GAS) и Gameplay Tags, что обеспечивает простоту и масштабируемость</li>
-                            <li>Оптимизация критичных систем: работа с сохранениями и поиск по DataTable вынесены в C++ для повышения производительности, остальная логика реализована в Blueprint для доработки проекта даже без С++ разработчика</li>
-                        </ul>
-                    </p>
-                    <br>
-                    <p class="project-desc">Статус:«закончен»</p>
-
-                        <button class="btn" onclick="this.nextElementSibling.classList.toggle('show')">
-                            Вложения
-                        </button>
-                        <div class="collapspanel">
-                            <div class="collapsed-content">
-                                <div class="gallery-grid" id="gallery-project3">
-                                    <!-- Видео -->
-                                    <div class="gallery-item" onclick="openMedia('video', 'resources/mintbloom/mintbloomdemo.mkv', 0, 'gallery-project3')">
-                                        <div class="video-thumb">
-                                            <img src="resources/mintbloom/thumb.png" alt="Превью видео">
-                                            <div class="play-icon">▶</div>
-                                        </div>
-                                        <div class="media-name">Видео обзор</div>
-                                    </div>
-                                    
-                                    <!-- Скриншоты -->
-                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/buildingbook.png', 1, 'gallery-project3')">
-                                        <img src="resources/mintbloom/buildingbook.png" alt="Скриншот 1" class="image-thumb">
-                                        <div class="media-name">Экран строительства</div>
-                                    </div>                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/crafting.png', 2, 'gallery-project3')">
-                                        <img src="resources/mintbloom/crafting.png" alt="Скриншот 2" class="image-thumb">
-                                        <div class="media-name">Экран крафта</div>
-                                    </div>                                    
-                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/gameplaytag.PNG', 3, 'gallery-project3')">
-                                        <img src="resources/mintbloom/gameplaytag.PNG" alt="Скриншот 3" class="image-thumb">
-                                        <div class="media-name">GameplayTags</div>
-                                    </div>
-                                    <div class="gallery-item" onclick="openMedia('image', 'resources/mintbloom/attribute.PNG', 4, 'gallery-project3')">
-                                        <img src="resources/mintbloom/attribute.PNG" alt="Скриншот 4" class="image-thumb">
-                                        <div class="media-name">DT с GameplayTag в свойствах</div>
-                                    </div>                                  
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <p class="project-desc">
-                        <br>
-                        Небольшой, но технически насыщенный проект, демонстрирующий умение проектировать и реализовывать, как заимствованные, так и создавать новые сложные игровые системы с гибкой архитектурой.
-                        <div>В планах:</div>
-                        <ul class="feature-list">                            
-                            <li>Подключить достижения в Steam после публикации</li>
-                        </ul>
-                        </p>
-                        
-
-                    <a href="..." target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
                 <br>
 <!--NPC_AI-->
@@ -367,7 +423,7 @@
                                     <!-- Скриншоты -->
                                     <div class="gallery-item" onclick="openMedia('image', 'resources/npc_ai/whole.PNG', 1, 'gallery-project4')">
                                         <img src="resources/npc_ai/whole.PNG" alt="Скриншот 1" class="image-thumb">
-                                        <div class="media-name">Экран строительства</div>
+                                        <div class="media-name">Диалог с полученными и выполненными квестами</div>
                                     </div>                                    
                                     <div class="gallery-item" onclick="openMedia('image', 'resources/npc_ai/request.png', 2, 'gallery-project4')">
                                         <img src="resources/npc_ai/request.png" alt="Скриншот 2" class="image-thumb">
@@ -391,13 +447,13 @@
                         </p>
                         
 
-                    <a href="..." target="_blank" class="project-link">Смотреть на GitHub</a>
+                    <a href="https://github.com/Flet4er/NPC_AI" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>
                 <br>
 <!--днд-->                
                 <div class="project-card">
                     <h3 class="project-title">Клиент для игры в DnD</h3>
-                    <p class="project-desc">Виртуальный стол для DnD. Мастер загружает карты и фигурки на лету, игроки видят их в реальном времени. Всё, что нужно для живой игры на расстоянии: создание персонажей, броски костей</p>
+                    <p class="project-desc">Прототип виртуального игрового стола для DnD. В ходе разработки реализованы динамическая загрузка изображений, синхронизация ресурсов между участниками, локальное сохранение состояния партии и восстановление данных при подключении клиентов. Проект не доведён до полноценного игрового продукта; в портфолио представлены реализованные подсистемы и их техническая архитектура.</p>
                     <h3 class="project-key">Ключевой функционал:</h3>
                         <ul class="feature-list">
                             <li>Проект полностью написан на С++. Blueprint использовался только в UI.</li>
@@ -443,18 +499,6 @@
                                 </div>
                             </div>
                         </div>
-
-                    <br>
-                    <p class="project-desc">Проект не работоспособный, слишком сильно замахнулся. Однако реализована динамическая загрузка изображение, их синхронизация через HTTP сервер, локальные сохранения и подтягиваение этих же изображений для клиентов при загрузке.
-                        <div>В планах:</div>
-                        <ul class="feature-list">                            
-                            <li>Рантайм загрузка\синхронизация\репликация 3D моделей</li>
-                            <li>Реализовать "туман войны"</li>
-                            <li>Добавить полную базу заклинаний, экипировки</li>
-                            <li>Реализовать AI мастера, который будет генерировать из имеющихся материалов(карты,фигурки,модели) - сюжет для партий</li>
-                        </ul>
-                    </p>
-
                     <a href="https://github.com/Flet4er/DnD_project" target="_blank" class="project-link">Смотреть на GitHub</a>
                 </div>                
             </div>

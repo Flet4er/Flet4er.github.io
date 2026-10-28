@@ -93,7 +93,7 @@ body {
     background-color: #1c2741; /*разделы бэкграунд*/
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    color: #ffffffc0;
+    color: #ffffffc0;     
 }
 
 .section h2 {
@@ -107,9 +107,25 @@ body {
 
 
 .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    padding-top: .4rem;  
+    padding-bottom: .4rem;  
+    display: grid;
+    grid-auto-flow: column;
+    align-content: start;
+    gap: 8px;
+    align-items: start;
+    justify-items: start;
+    justify-content: start;
+    grid-template-columns: 250px;
+}
+
+.skills-container h4 {
+    background-color: #0077ff;
+    border: #6babeb;
+    padding: 0.2rem .5rem;
+    border-radius: 10px;
+  white-space: nowrap;
+
 }
 
 .skill {
