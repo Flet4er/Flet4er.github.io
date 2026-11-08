@@ -566,3 +566,20 @@ font-weight: 500;
 }
 
 
+
+.lang-toggle {
+    margin-left: auto;           /* прижать вправо, если nav — flex */
+    padding: 6px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.lang-toggle:hover {
+    background: #f0f0f0;
+}

@@ -1,0 +1,38 @@
+{
+  "ru": {
+    "nav_about": "Обо мне",
+    "nav_skills": "Навыки",
+    "nav_projects": "Проекты",
+    "nav_additional": "Дополнительно",
+    "nav_contacts": "Контакты",
+    "hero_title": "Б. Владимир",
+    "hero_subtitle": "Unreal Engine C++ Developer",
+    "hero_button_projects": "Мои проекты",
+    "hero_button_contacts": "Связаться со мной",
+    "about_title": "Обо мне",
+    "about_text": "Разрабатываю игровые системы на Unreal Engine с использованием C++ и Blueprint.",
+    "skills_title": "Мои навыки",
+    "projects_title": "Мои проекты",
+    "contacts_title": "Как со мной связаться",
+    "contacts_text": "Вы можете написать мне:",
+    "footer_hosting": "Хостинг: GitHub Pages"
+  },
+  "en": {
+    "nav_about": "About",
+    "nav_skills": "Skills",
+    "nav_projects": "Projects",
+    "nav_additional": "Additional",
+    "nav_contacts": "Contacts",
+    "hero_title": "B. Vladimir",
+    "hero_subtitle": "Unreal Engine C++ Developer",
+    "hero_button_projects": "My Projects",
+    "hero_button_contacts": "Contact Me",
+    "about_title": "About Me",
+    "about_text": "I develop game systems on Unreal Engine using C++ and Blueprint.",
+    "skills_title": "My Skills",
+    "projects_title": "My Projects",
+    "contacts_title": "How to Contact Me",
+    "contacts_text": "You can write to me:",
+    "footer_hosting": "Hosting: GitHub Pages"
+  }
+}

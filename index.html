@@ -13,18 +13,28 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script data-goatcounter="https://flet4er.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+    <script>
+    if (window.location.protocol != 'file:')    {
+        const s = document.createElement('script');
+        s.async = true;
+        s.dataset.goatcounter = 'https://flet4er.goatcounter.com/count';
+        s.src = 'https://gc.zgo.at/count.js';
+        document.head.appendChild(s);
+    }
+    </script>
 </head>
 <body>
 
     <header class="header">
         <nav class="nav">
-            <a href="#about" class="nav-link">Обо мне</a>
-            <a href="#skills" class="nav-link">Навыки</a>
-            <a href="#projects" class="nav-link">Проекты</a>
-            <a href="#additional" class="nav-link">Дополнительно</a>
-            <a href="#contacts" class="nav-link">Контакты</a>
+            <a href="#about" class="nav-link" data-i18n="nav_about">Обо мне</a>
+            <a href="#skills" class="nav-link" data-i18n="nav_skills">Навыки</a>
+            <a href="#projects" class="nav-link" data-i18n="nav_projects">Проекты</a>
+            <a href="#additional" class="nav-link" data-i18n="nav_additional">Дополнительно</a>
+            <a href="#contacts" class="nav-link" data-i18n="nav_contacts">Контакты</a>
+
+            <!-- кнопка переключения языка -->
+            <button id="langToggle" class="lang-toggle">EN</button>
         </nav>
     </header>
 

@@ -245,3 +245,124 @@ function lockScroll() {
 function unlockScroll() {
     document.body.style.overflow = '';
 }
+
+// ============================================================
+//  i18n: ручной словарь на JSON + Vanilla JS
+// ============================================================
+
+const DEFAULT_LANG = 'ru';
+const SUPPORTED_LANGS = ['ru', 'en'];
+const STORAGE_KEY = 'portfolio-lang';
+const IS_LOCAL = window.location.protocol === 'file:';
+
+let translations = {};   // сюда загрузим JSON
+let currentLang = DEFAULT_LANG;
+
+/**
+ * Загружает JSON с переводами.
+ * Используем fetch — работает и локально через http-сервер,
+ * и на GitHub Pages.
+ */
+async function loadTranslations() {
+    if (IS_LOCAL) return;
+    try {        
+        // кэш-бастинг не нужен, но если будешь часто менять — можно добавить ?v=Date.now()
+        const response = await fetch('./translations.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        translations = await response.json();        
+    } catch (err) {
+        console.error('Не удалось загрузить translations.json:', err);
+    }
+}
+
+/**
+ * Применяет переводы к странице.
+ * Для каждого элемента с [data-i18n] берём ключ и подставляем текст.
+ */
+function applyTranslations(lang) {
+    const dict = translations[lang];
+    if (!dict) {
+        console.warn(`Нет переводов для языка: ${lang}`);
+        return;
+    }
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const value = dict[key];
+        if (value !== undefined) {
+            el.textContent = value;
+        } else {
+            console.warn(`Отсутствует ключ "${key}" для языка "${lang}"`);
+        }
+    });
+
+    // Меняем атрибут lang у <html> — полезно для SEO и скринридеров
+    document.documentElement.lang = lang;
+
+    // Обновляем подпись кнопки (показываем язык, на который переключимся)
+    const btn = document.getElementById('langToggle');
+    if (btn) {
+        btn.textContent = lang === 'ru' ? 'EN' : 'RU';
+    }
+}
+
+/**
+ * Устанавливает язык: применяет перевод и сохраняет выбор.
+ */
+function setLanguage(lang) {
+    if (!SUPPORTED_LANGS.includes(lang)) lang = DEFAULT_LANG;
+    currentLang = lang;
+    applyTranslations(lang);
+    localStorage.setItem(STORAGE_KEY, lang);
+}
+
+/**
+ * Определяет стартовый язык:
+ * 1) сохранённый в localStorage
+ * 2) язык браузера
+ * 3) DEFAULT_LANG
+ */
+function detectInitialLang() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && SUPPORTED_LANGS.includes(saved)) return saved;
+
+    const browserLang = (navigator.language || '').slice(0, 2).toLowerCase();
+    if (SUPPORTED_LANGS.includes(browserLang)) return browserLang;
+
+    return DEFAULT_LANG;
+}
+
+/**
+ * Переключатель по клику на кнопку.
+ */
+function initLangToggle() {
+    const btn = document.getElementById('langToggle');
+    if (!btn) return;
+
+    if (IS_LOCAL) {
+        btn.style.display = 'none';
+        return;
+    }
+
+    btn.addEventListener('click', () => {
+        const next = currentLang === 'ru' ? 'en' : 'ru';
+        setLanguage(next);
+    });
+}
+
+/**
+ * Точка входа.
+ */
+async function initI18n() {
+    if(IS_LOCAL){
+        // Локально — просто оставляем HTML как есть, ничего не трогаем
+        console.info('Локальный режим (file://): i18n отключён, кнопка скрыта.');
+        return;
+    }
+    await loadTranslations();
+    initLangToggle();
+    setLanguage(detectInitialLang());
+}
+
+// Ждём DOM, затем инициализируем
+document.addEventListener('DOMContentLoaded', initI18n);
