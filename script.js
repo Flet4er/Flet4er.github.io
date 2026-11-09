@@ -267,7 +267,7 @@ async function loadTranslations() {
     if (IS_LOCAL) return;
     try {        
         // кэш-бастинг не нужен, но если будешь часто менять — можно добавить ?v=Date.now()
-        const response = await fetch('./translations.json');
+        const response = await fetch('./translations.json?v=' + Date.now(), { cache: 'no-store' });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         translations = await response.json();        
     } catch (err) {
@@ -291,6 +291,17 @@ function applyTranslations(lang) {
         const value = dict[key];
         if (value !== undefined) {
             el.textContent = value;
+        } else {
+            console.warn(`Отсутствует ключ "${key}" для языка "${lang}"`);
+        }
+    });
+
+    // Для текстов с разметкой (<br>, <h4> и т.п.) используем data-i18n-html
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        const value = dict[key];
+        if (value !== undefined) {
+            el.innerHTML = value;
         } else {
             console.warn(`Отсутствует ключ "${key}" для языка "${lang}"`);
         }
